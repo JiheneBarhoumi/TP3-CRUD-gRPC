@@ -1,0 +1,30 @@
+syntax="proto3";
+
+package userPackage;
+
+
+
+service UserService {
+    rpc GetAll (NoParams) returns (UsersList) {}
+    rpc Get (UserId) returns (User) {}
+    rpc Create (User) returns (User) {}
+    rpc Update (User) returns (User) {}
+    rpc Delete (UserId) returns (NoParams) {}
+}
+
+message NoParams {}
+
+message User {
+    string id = 1;
+    string name = 2;
+    int32 age = 3;
+    string address = 4;
+}
+
+message UsersList {
+    repeated User users = 1;
+}
+
+message UserId {
+    string id = 1;
+}
